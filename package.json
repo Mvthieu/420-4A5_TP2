@@ -1,0 +1,26 @@
+{
+  "name": "420-4a5_tp2",
+  "version": "1.0.0",
+  "description": "tp2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mvthieu/420-4A5_TP2.git"
+  },
+  "author": "Mathieu Girard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mvthieu/420-4A5_TP2/issues"
+  },
+  "homepage": "https://github.com/Mvthieu/420-4A5_TP2#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongodb": "^5.2.0",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
