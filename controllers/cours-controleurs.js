@@ -61,3 +61,52 @@ const creerCours = async (req, res, next) => {
     }
     res.status(201).json({ cours: nouveauCours });
   };
+
+  const supprimerCours = async (req, res, next) => {
+    const coursId = req.params.coursId;
+    let cours;
+    try {
+        cours = await Cours.findById(coursId).populate("professeur");
+    } catch {
+      return next(
+        new HttpErreur("Erreur lors de la suppression du cours", 500)
+      );
+    }
+    if(!cours){
+      return next(new HttpErreur("Impossible de trouver le cours", 404));
+    }
+  
+    try{
+  
+      
+      await cours.remove();
+      cours.professeur.cours.pull(cours);
+      await cours.professeur.save()
+  
+    }catch{
+      return next(
+        new HttpErreur("Erreur lors de la suppression du cours", 500)
+      );
+    }
+    res.status(200).json({ message: "Cours supprimé" });
+  };
+
+  const updateCours = async (req, res, next) => {
+    const { titre, discipline } = req.body;
+    const coursId = requete.params.coursId;
+  
+    let cours;
+  
+    try {
+      cours = await Cours.findById(coursId);
+      cours.titre = titre;
+      cours.discipline = discipline;
+      await cours.save();
+    } catch {
+      return next(
+        new HttpErreur("Erreur lors de la mise à jour du cours", 500)
+      );
+    }
+  
+    res.status(200).json({ cours: cours.toObject({ getters: true }) });
+  };
