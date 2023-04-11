@@ -110,3 +110,8 @@ const creerCours = async (req, res, next) => {
   
     res.status(200).json({ cours: cours.toObject({ getters: true }) });
   };
+
+  exports.creerCours = creerCours;
+  exports.getCoursById = getCoursById;
+  exports.updateCours = updateCours;
+  exports.supprimerCours = supprimerCours;
