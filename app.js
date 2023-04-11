@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use("/api/cours", coursRoutes);
 app.use("/api/professeurs", professeursRoutes);
-//app.use("/api/etudiant", etudiantsRoutes);
+app.use("/api/etudiants", etudiantsRoutes);
 
 app.use((requete, reponse, next) => {
     return next(new HttpErreur("Route non trouvée", 404));
