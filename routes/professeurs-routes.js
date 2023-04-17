@@ -1,15 +1,15 @@
-const express = require('express');
-const controllersProfesseur = require('../controllers/professeurs-controleurs');
+const express = require("express");
+const controllersProfesseur = require("../controllers/professeurs-controleurs");
 const router = express.Router();
 
-router.get('/:profId', controllersProfesseur.getProfesseurById);
+router.get("/:profId", controllersProfesseur.getProfesseurById);
 
-router.post('/', controllersProfesseur.ajouterProfesseur);
+router.post("/", controllersProfesseur.ajouterProfesseur);
 
-router.patch('/:profId', controllersProfesseur.updateProfesseur);
+router.patch("/:profId", controllersProfesseur.updateProfesseur);
 
-router.patch('/:profId/ajouterCours', controllersProfesseur.ajouterCours);
+router.post("/:profId/ajouterCours", controllersProfesseur.ajouterCours);
 
-router.delete('/:profId', controllersProfesseur.supprimerProfesseur);
+router.delete("/:profId", controllersProfesseur.supprimerProfesseur);
 
 module.exports = router;
